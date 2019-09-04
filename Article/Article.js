@@ -116,7 +116,7 @@ const data = [
 const articleSection = document.querySelector('.articles')
 
 
-function articleCreater(title, date, firstParagraph, secondParagraph,thirdParagraph){
+function articleCreator(title, date, firstParagraph, secondParagraph,thirdParagraph){
     const article = document.createElement('div')
     const articleTitle = document.createElement('h2')
     const articleDate = document.createElement('p')
@@ -142,9 +142,20 @@ function articleCreater(title, date, firstParagraph, secondParagraph,thirdParagr
     articleP2.textContent = secondParagraph;
     articleP3.textContent = thirdParagraph;
 
+    articleSpan.addEventListener('click',e=>{
+        article.classList.add('article-open')
+        console.log('you clicked!')
+    })
+
     return article
 }
 
 data.forEach(d=>{
-    articleSection.appendChild(articleCreater(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph))
+    articleSection.appendChild(articleCreator(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph))
 })
+const sampleTitle = 'Is Python best for Data Science'
+const sampleDate = 'Sep 4th, 2019'
+const sampleP1 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
+const sampleP2 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
+const sampleP3 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
+articleSection.appendChild(articleCreator(sampleTitle, sampleDate, sampleP1, sampleP2, sampleP3))
