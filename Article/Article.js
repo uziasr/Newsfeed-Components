@@ -103,13 +103,13 @@ const data = [
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  x Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
 
   Step 3: return the entire component.
 
-  Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+  x Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
-  Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+  x Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
 //<div class="articles"></div>
@@ -124,6 +124,7 @@ function articleCreator(title, date, firstParagraph, secondParagraph,thirdParagr
     const articleP2 = document.createElement('p')
     const articleP3 = document.createElement('p')
     const articleSpan = document.createElement('span')
+    articleSpan.textContent = '\u25bc'
 
     article.appendChild(articleTitle)
     article.appendChild(articleDate)
@@ -143,19 +144,19 @@ function articleCreator(title, date, firstParagraph, secondParagraph,thirdParagr
     articleP3.textContent = thirdParagraph;
 
     articleSpan.addEventListener('click',e=>{
-        article.classList.add('article-open')
-        console.log('you clicked!')
+        article.classList.toggle('article-open')
+        // console.log('you clicked!')
     })
 
     return article
 }
-
+data.push({
+    title:'Is Python best for Data Science',
+    date: 'Sep 4th, 2019',
+    firstParagraph:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede',
+    secondParagraph:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede',
+    thirdParagraph:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
+})
 data.forEach(d=>{
     articleSection.appendChild(articleCreator(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph))
 })
-const sampleTitle = 'Is Python best for Data Science'
-const sampleDate = 'Sep 4th, 2019'
-const sampleP1 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
-const sampleP2 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
-const sampleP3 = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
-articleSection.appendChild(articleCreator(sampleTitle, sampleDate, sampleP1, sampleP2, sampleP3))
