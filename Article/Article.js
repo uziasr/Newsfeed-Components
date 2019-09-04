@@ -157,6 +157,6 @@ data.push({
     secondParagraph:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede',
     thirdParagraph:'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede'
 })
-data.forEach(d=>{
+data.map(d=>{
     articleSection.appendChild(articleCreator(d.title, d.date, d.firstParagraph, d.secondParagraph, d.thirdParagraph))
 })
